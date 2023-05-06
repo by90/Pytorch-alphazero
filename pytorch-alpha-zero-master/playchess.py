@@ -24,7 +24,7 @@ def tolist( move_generator ):
 def main( modelFile, mode, color, num_rollouts, num_threads, fen, verbose ):
     
     #prepare neural network
-    alphaZeroNet = AlphaZeroNetwork.AlphaZeroNet( 20, 256 )
+    alphaZeroNet = AlphaZeroNetwork.AlphaZeroNet( 10, 128 )
 
     #toggle for cpu/gpu
     cuda = False
