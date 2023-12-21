@@ -20,7 +20,7 @@ def train():
     train_loader = DataLoader(train_ds,
                               batch_size=256,
                               shuffle=True,
-                              num_workers=48)
+                              num_workers=6)
 
     if cuda:
         alphaZeroNet = AlphaZeroNet(num_blocks, num_filters).cuda()
