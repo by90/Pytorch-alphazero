@@ -28,13 +28,13 @@ def reformat_games(file_names, new_dir, thread_idx):
 
 
 #get all pgns
-ccrl_dir = 'cclr/train'
+ccrl_dir = 'ccrl/train'
 all_file_names = os.listdir(ccrl_dir)
 for i in range(len(all_file_names)):
     all_file_names[i] = os.path.join(ccrl_dir, all_file_names[i])
 
 #the new dir
-reformat_dir = 'cclr'
+reformat_dir = 'ccrl'
 
 #launch some threads
 threads = []

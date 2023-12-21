@@ -10,8 +10,8 @@
 
 ## 调整:
 1. 注意修改.gitignore,增加:
-cclr/
-cclr-data/
+ccrl/
+ccrl-data/
 *.pgn
 避免因为这些文件,git会监控,导致转换速度下降
 1. chess.pgn
@@ -25,16 +25,20 @@ https://lczero.org/blog/2018/09/a-standard-dataset/
  会显示无法安全下载,我们可在下载项目中,选择保留,仍然保留
 
 1. 将ccrl-pgn.tar.bz2文件拷贝到项目根目录
-   使用winrar解压到当前目录,会增加一个cclr文件夹
+   使用winrar解压到当前目录,会增加一个ccrl文件夹
 
 1. 修改reformat.py
 主要是目录,我们放在项目根目录下,所以
-ccrl_dir = 'cclr/train'
+ccrl_dir = 'ccrl/train'
 #the new dir
-reformat_dir = 'cclr'
-这样转换后的数据就在cclr目录下了
+reformat_dir = 'ccrl'
+这样转换后的数据就在ccrl目录下了
 然后简单运行reformat.py
-这个过程很慢,大体要1-2小时
+这个过程很慢,笔记本上前后用了5小时
+
+1. 重点:之所以reformat慢到如此程度,git监控问题不小
+  工作前先将.git目录改名为.git1
+  速度会大幅提升
 
 1. 之后就运行train
 先设置文件夹:
@@ -42,3 +46,7 @@ ccrl_dir = 'ccrl'
 我们需要理解其模型训练的过程,比如策略头和价值头的特征和标签是什么,输出又是什么
 需要注意,训练过程中mcts并没有作用
 它只在play时有用,由于没有self-play,而是直接使用国际象棋对局训练,因此mcts仅仅用于play
+
+## 开始训练
+另一个项目使用gpu训练同时,开始训练
+结果导致笔记本重新启动...
